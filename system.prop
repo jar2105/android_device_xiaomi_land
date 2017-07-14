@@ -56,6 +56,7 @@ persist.camera.HAL3.enabled=1
 vendor.vidc.enc.narrow.searchrange=1
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk,org.telegram.messenger,com.whatsapp
 ro.media.enc.jpeg.quality=100
+persist.vendor.qti.telephony.vt_cam_interface=1
 
 # CNE/DPM
 persist.cne.feature=1
