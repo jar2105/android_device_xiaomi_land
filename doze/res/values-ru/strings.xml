@@ -31,5 +31,5 @@
     <!-- Help text -->
     <string name="dlg_ok">ОК</string>
     <string name="doze_settings_help_title">Помощь</string>
-    <string name="doze_settings_help_text">These features use sensor events to launch a doze notification pulse. The chosen sensor is only enabled when the device receives a notification, this helps to reduce battery usage. There is also an option to enable the chosen sensor as soon as the screen turns off, this will cause higher battery usage.</string>
+    <string name="doze_settings_help_text">Эта функция использует датчики для запуска отображения уведомлений. Выбранный датчик включается только тогда, когда устройство получает уведомление, это помогает уменьшить потребление батареи. Существует также возможность включить выбранный датчик, как только экран выключается, это вызовет более высокое использование батареи.</string>
 </resources>
