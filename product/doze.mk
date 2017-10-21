@@ -1,3 +1,3 @@
 # Doze mode
- PRODUCT_PACKAGES += \
-     XiaomiDoze
+# PRODUCT_PACKAGES += \
+#     XiaomiDoze
