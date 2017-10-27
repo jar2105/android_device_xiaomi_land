@@ -6,5 +6,11 @@
   {
     "repository": "android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings"
+  },
+  {
+    "remote":      "github",
+    "repository":  "jar2105/CameraNext",
+    "target_path": "packages/apps/CameraNext",
+    "branch":      "master"
   }
 ]
