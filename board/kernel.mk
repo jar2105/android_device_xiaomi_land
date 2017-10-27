@@ -8,5 +8,5 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --second_offset 0x00f00000 -
 
 TARGET_KERNEL_APPEND_DTB := true
 
-TARGET_KERNEL_CONFIG := lineageos_land_defconfig
+TARGET_KERNEL_CONFIG := land_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
