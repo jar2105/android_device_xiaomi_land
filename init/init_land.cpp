@@ -34,6 +34,7 @@
 #include <sstream>
 #include <sys/sysinfo.h>
 
+#include <android-base/file.h>
 #include <android-base/strings.h>
 
 #include "vendor_init.h"
@@ -51,6 +52,19 @@ char const *large_cache_height;
 static std::string board_id;
 
 using android::base::Trim;
+
+void import_kernel_cmdline1(bool in_qemu,
+                           const std::function<void(const std::string&, const std::string&, bool)>& fn) {
+    std::string cmdline;
+    android::base::ReadFileToString("/proc/cmdline", &cmdline);
+
+    for (const auto& entry : android::base::Split(android::base::Trim(cmdline), " ")) {
+        std::vector<std::string> pieces = android::base::Split(entry, "=");
+        if (pieces.size() >= 2) { // lineage's : == 2
+            fn(pieces[0], pieces[1], in_qemu);
+        }
+    }
+}
 
 static void import_cmdline(const std::string& key,
         const std::string& value, bool for_emulator __attribute__((unused)))
@@ -125,7 +139,14 @@ void check_device()
 
 void init_variant_properties()
 {
+<<<<<<< HEAD
     import_kernel_cmdline(0, import_cmdline);
+=======
+    if (property_get("ro.product.device") != "land")
+        return;
+
+    import_kernel_cmdline1(0, import_cmdline);
+>>>>>>> 1e27b8c... land: init: fix board_id
 
     property_set("ro.product.wt.boardid", board_id.c_str());
 
