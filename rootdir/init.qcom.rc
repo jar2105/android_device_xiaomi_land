@@ -27,7 +27,6 @@
 
 import init.qcom.power.rc
 import init.qcom.usb.rc
-import init.qcom.fingerprint.rc
 
 on early-init
     mkdir /firmware 0771 system system
@@ -624,32 +623,29 @@ service fingerprintd /system/bin/fingerprintd
     disabled
 
 service gx_fpd /system/bin/gx_fpd
-    class late_start
     user root
     group system system
     writepid /dev/cpuset/system-background/tasks
-    oneshot
     disabled
 
-# Fingerprint Fpc
 on property:persist.sys.fp.vendor=switchf
-    start fingerprintd
+    stop gx_fpd
     setprop persist.sys.fp.vendor searchf
-
+    start fingerprintd
     setprop ro.boot.fpsensor fpc
-    setprop persist.sys.fp.goodix 0
-    setprop fpc.fp.miui.token 0
     setprop ro.hardware.fingerprint searchf
+    setprop persist.sys.fp.onstart=1
 
-# Fingerprint Goodix
 on property:persist.sys.fp.vendor=goodix
-    start gx_fpd
-    setprop ro.boot.fpsensor gdx
+   setprop ro.boot.fpsensor gdx
+   setprop ro.hardware.fingerprint goodix
+   setprop persist.sys.fp.onstart=0
 
-    setprop persist.sys.fp.goodix 1
-    setprop goodix.fp.miui.analyse 1
-    setprop goodix.fp.miui.token 0
-    setprop ro.hardware.fingerprint goodix
+on property:persist.sys.fp.onstart=0
+   start gx_fpd
+
+on property:persist.sys.fp.onstart=1
+   start fingerprintd 
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
