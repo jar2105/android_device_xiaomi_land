@@ -43,6 +43,7 @@ ro.bluetooth.sap=true
 ro.qualcomm.bt.hci_transport=smd
 
 # Camera
+ro.media.enc.jpeg.quality=100
 media.camera.ts.monotonic=0
 persist.camera.time.monotonic=1
 persist.camera.gyro.android=1
@@ -57,6 +58,7 @@ media.stagefright.less-secure=true
 persist.cne.feature=1
 
 # Display
+windowsmgr.max_events_per_sec=150
 persist.hwc.enable_vds=1
 debug.gralloc.enable_fb_ubwc=1
 persist.hwc.mdpcomp.enable=true
@@ -95,9 +97,27 @@ ro.core_ctl_max_cpu=4
 ro.core_ctl_min_cpu=2
 
 # Radio
+persist.cust.tel.eons=1
+ro.ril.gprsclass=10
+ro.ril.hsdpa.category=8
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=1
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
+net.ipv4.ip_no_pmtu_disc=0
+net.ipv4.route.flush=1
+net.ipv4.tcp_ecn=0
+net.ipv4.tcp_fack=1
+net.ipv4.tcp_mem=187000 187000 187000
+net.ipv4.tcp_moderate_rcvbuf=1
+net.ipv4.tcp_no_metrics_save=1
+net.ipv4.tcp_rfc1337=1
+net.ipv4.tcp_rmem=4096 39000 187000
+net.ipv4.tcp_sack=1
+net.ipv4.tcp_timestamps=1
+net.ipv4.tcp_window_scaling=1
+net.ipv4.tcp_wmem=4096 39000 187000
 net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
 net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
 net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
