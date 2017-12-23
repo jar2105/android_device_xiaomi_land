@@ -95,7 +95,7 @@ ro.am.reschedule_service=true
 ro.config.swap=true
 ro.config.zram=true
 ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=2
+ro.core_ctl_min_cpu=1
 
 # Radio
 persist.cust.tel.eons=1
