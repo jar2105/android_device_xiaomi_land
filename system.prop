@@ -18,9 +18,9 @@ audio.offload.video=true
 audio.playback.mch.downsample=true
 audio.safx.pbe.enabled=true
 audio_hal.period_size=192
-ro.qc.sdk.audio.fluencetype=none
+ro.qc.sdk.audio.fluencetype=fluence
 persist.audio.fluence.voicecall=false
-persist.audio.fluence.speaker=false
+persist.audio.fluence.speaker=true
 persist.audio.fluence.voicerec=false
 use.qti.sw.alac.decoder=true
 use.qti.sw.ape.decoder=true
@@ -88,14 +88,6 @@ vidc.disable.split.mode=1
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
-
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-ro.am.reschedule_service=true
-ro.config.swap=true
-ro.config.zram=true
-ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=1
 
 # Radio
 persist.cust.tel.eons=1
