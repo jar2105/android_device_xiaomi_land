@@ -148,3 +148,6 @@ ro.sys.fw.use_trim_settings=true
 
 # Wifi
 wifi.interface=wlan0
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
