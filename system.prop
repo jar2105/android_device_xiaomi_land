@@ -151,3 +151,6 @@ wifi.interface=wlan0
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+
+# Battery
+pm.sleep_mode=1
