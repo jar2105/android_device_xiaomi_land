@@ -84,7 +84,7 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">11</integer>
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
 
     <integer name="config_buttonBrightnessSettingDefault">0</integer>
 
@@ -94,7 +94,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">69</integer>
+    <integer name="config_screenBrightnessSettingDefault">60</integer>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">500</integer>
@@ -146,17 +146,19 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">71</integer>
 
-    <!-- Control the behavior when the user long presses the home button.
-            0 - Nothing
-            1 - Menu key
-            2 - Recent apps view in SystemUI
-            3 - Launch assist intent
-            4 - Voice Search
-            5 - In-app Search
-         This needs to match the constants in
-         policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
-    -->
-    <integer name="config_longPressOnHomeBehavior">3</integer>
+    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
+         This integer should equal the sum of the corresponding value for each
+         of the following keys present:
+             1 - Home
+             2 - Back
+             4 - Menu
+             8 - Assistant (search)
+            16 - App switch
+            32 - Camera
+            64 - Volume rocker
+         For example, a device with Home, Back and Menu keys would set this
+         config to 7. -->
+    <integer name="config_deviceHardwareWakeKeys">64</integer>
 
     <!-- Wifi driver supports batched scan -->
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
