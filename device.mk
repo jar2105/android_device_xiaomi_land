@@ -106,6 +106,9 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     libmm-qcamera
 
+# Charger
+include $(DEVICE_PATH)/rootdir/charger/charger.mk
+
 # ConfigPanel
 PRODUCT_PACKAGES += \
     ConfigPanel

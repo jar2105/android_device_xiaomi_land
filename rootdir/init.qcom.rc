@@ -618,7 +618,7 @@ service ril-daemon2 /system/bin/rild -c 2
     user root
     group radio cache inet misc audio log readproc wakelock qcom_diag
 
-service charger /charger
+service charger /sbin/charger
     class charger
     group graphics system
     seclabel u:r:healthd:s0
