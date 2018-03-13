@@ -1,4 +1,4 @@
-/* Copyright (c) 2011, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2015, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -9,7 +9,7 @@
  *       copyright notice, this list of conditions and the following
  *       disclaimer in the documentation and/or other materials provided
  *       with the distribution.
- *     * Neither the name of The Linux Foundation nor the names of its
+ *     * Neither the name of The Linux Foundatoin, nor the names of its
  *       contributors may be used to endorse or promote products derived
  *       from this software without specific prior written permission.
  *
@@ -25,45 +25,21 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+#ifndef _GNSSPPS_H
+#define _GNSSPPS_H
 
-#ifndef DEBUG_H
-#define DEBUG_H
-
-#include <stdio.h>
-
-#define LOG_TAG "LocSvc_rpc"
-#include <utils/Log.h>
-
-#define PRINT(x...) do {                                    \
-        fprintf(stdout, "%s(%d) ", __FUNCTION__, __LINE__); \
-        fprintf(stdout, ##x);                               \
-        ALOGD(x);                               \
-    } while(0)
-
-#ifdef DEBUG
-#define D PRINT
-#else
-#define D(x...) do { } while(0)
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-#ifdef VERBOSE
-#define V PRINT
-#else
-#define V(x...) do { } while(0)
+/*  opens the device and fetches from PPS source */
+int initPPS(char *devname);
+/* updates the fine time stamp */
+int getPPS(struct timespec *current_ts, struct timespec *current_boottime, struct timespec *last_boottime);
+/* stops fetching and closes the device */
+void deInitPPS();
+
+#ifdef __cplusplus
+}
 #endif
-
-#define E(x...) do {                                        \
-        fprintf(stderr, "%s(%d) ", __FUNCTION__, __LINE__); \
-        fprintf(stderr, ##x);                               \
-        ALOGE(x);                                            \
-    } while(0)
-
-#define FAILIF(cond, msg...) do {                                              \
-        if (__builtin_expect (cond, 0)) {                                      \
-            fprintf(stderr, "%s:%s:(%d): ", __FILE__, __FUNCTION__, __LINE__); \
-            fprintf(stderr, ##msg);                                            \
-            ALOGE(##msg);                                                       \
-        }                                                                      \
-    } while(0)
-
-#endif/*DEBUG_H*/
+#endif
