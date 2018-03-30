@@ -20,9 +20,6 @@ include $(DEVICE_PATH)/board/*.mk
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
-# Enable Real time charging info
-BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
-
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
 
