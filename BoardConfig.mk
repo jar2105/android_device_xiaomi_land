@@ -20,8 +20,5 @@ include $(DEVICE_PATH)/board/*.mk
 # Properties
 TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
 # Inherit the proprietary files
 -include vendor/xiaomi/land/BoardConfigVendor.mk
