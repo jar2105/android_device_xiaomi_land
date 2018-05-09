@@ -165,6 +165,9 @@ echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
 echo 345600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 echo 1209600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 
+# Re-enable thermal core_control
+echo 1 > /sys/module/msm_thermal/core_control/enabled
+
 # Set GPU Initial frequency
 echo 4 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
