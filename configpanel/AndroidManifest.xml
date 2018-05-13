@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cyanogenmod.settings.device"
+    android:versionCode="6"
+    android:versionName="2.4"
+    android:sharedUserId="android.uid.system" >
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INJECT_EVENTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-sdk
+        android:minSdkVersion="24" />
+    <application
+        android:label="@string/advanced_settings"
+        android:theme="@style/XiaomiPartsTheme"
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true">
+        <activity
+            android:name=".DeviceSettings"
+            android:label="@string/advanced_settings" >
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_additional_settings" />
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.device" />
+        </activity>
+
+        <receiver android:name=".Startup" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.PRE_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>
