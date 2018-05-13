@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConfigPanel</string>
+    <string name="advanced_settings">Настройки устройства</string>
+    <string name="category_vibrator">Вибрация</string>
+    <string name="category_display">Дисплей</string>
+    <string name="vib_strength_title_head">Сила</string>
+    <string name="vib_strength_summary_head">Установить силу вибрации</string>
+    <string name="taptowake_summary">Использовать двойное нажатие на экране блокировки для включения</string>
+    <string name="taptowake_title">Двойное нажатие для включения</string>
+    <string name="device_doze_title">Индикация событий</string>
+</resources>

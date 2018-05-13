@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/category_vibrator">
+        <com.cyanogenmod.settings.device.VibratorStrengthPreference
+            android:key="vib_strength"
+            android:iconSpaceReserved="true"
+            android:title="@string/vib_strength_title_head"
+            android:summary="@string/vib_strength_summary_head" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="display"
+        android:title="@string/category_display">
+        <SwitchPreference
+            android:key="taptowake"
+            android:summary="@string/taptowake_summary"
+            android:title="@string/taptowake_title" />
+        <Preference
+            android:key="device_doze"
+            android:persistent="false"
+            android:title="@string/device_doze_title" >
+            <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="org.lineageos.settings.doze"
+                 android:targetClass="org.lineageos.settings.doze.DozeSettingsActivity"/>
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

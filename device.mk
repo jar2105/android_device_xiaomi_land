@@ -106,6 +106,10 @@ PRODUCT_PACKAGES += \
     camera.msm8937 \
     libmm-qcamera
 
+# ConfigPanel
+PRODUCT_PACKAGES += \
+    ConfigPanel
+
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=192m \
