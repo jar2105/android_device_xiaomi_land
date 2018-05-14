@@ -9,4 +9,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.qcom.sensors.sh \
     init.qcom.post_boot.sh \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.spectrum.rc \
+    init.spectrum.sh
