@@ -25,7 +25,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="56dp"
         android:orientation="vertical">
         <TextView
             android:id="@android:id/title"
