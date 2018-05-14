@@ -9,4 +9,7 @@
     <string name="taptowake_summary">Double tap on lockscreen to wake device</string>
     <string name="taptowake_title">Tap to wake</string>
     <string name="device_doze_title">Ambient display</string>
+    <string name="category_kernel">Kernel</string>
+    <string name="spectrum_settings">Spectrum settings</string>
+    <string name="spectrum_settings_summary">Choose custom kernel profile</string>
 </resources>

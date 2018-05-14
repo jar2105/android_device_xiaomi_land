@@ -9,4 +9,7 @@
     <string name="taptowake_summary">Использовать двойное нажатие на экране блокировки для включения</string>
     <string name="taptowake_title">Двойное нажатие для включения</string>
     <string name="device_doze_title">Индикация событий</string>
+    <string name="category_kernel">Ядро</string>
+    <string name="spectrum_settings">Настройка Spectrum</string>
+    <string name="spectrum_settings_summary">Выберите необходимый профиль ядра</string>
 </resources>
