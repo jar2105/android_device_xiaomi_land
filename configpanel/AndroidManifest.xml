@@ -14,7 +14,7 @@
         android:minSdkVersion="24" />
     <application
         android:label="@string/advanced_settings"
-        android:theme="@style/XiaomiPartsTheme"
+        android:theme="@style/ConfigPanelTheme"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true">
         <activity
