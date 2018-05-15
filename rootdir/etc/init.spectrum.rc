@@ -48,6 +48,7 @@ on property:persist.spectrum.profile=0
 
 # Gaming
 on property:persist.spectrum.profile=1
+    # Configure governor settings for big cluster
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
@@ -80,34 +81,19 @@ on property:persist.spectrum.profile=1
 
 # Battery
 on property:persist.spectrum.profile=2
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "blu_active"
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "blu_active"
+    # Configure governor settings for big cluster
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 422400
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1209600
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 45600
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1209600
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/go_hispeed_load 99
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/above_hispeed_delay 25000
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/timer_rate 20000
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/hispeed_freq 960000
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/target_loads 60
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/min_sample_time 45000
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/fastlane_threshold 35
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/fastlane 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/align_windows 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/blu_active/io_is_busy 1
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/go_hispeed_load 99
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/above_hispeed_delay 25000
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/timer_rate 30000
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/hispeed_freq 768000
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/timer_slack 20000
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/target_loads 50
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/fastlane_threshold 35
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/fastlane 1
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/align_windows 1
-    write /sys/devices/system/cpu/cpu4/cpufreq/blu_active/io_is_busy 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 422400
 
-    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 400000000
+    # Configure governor settings for little cluster
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 345600
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 345600
+
+    write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 375000000
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor powersave
     write /proc/sys/kernel/sched_boost 0
