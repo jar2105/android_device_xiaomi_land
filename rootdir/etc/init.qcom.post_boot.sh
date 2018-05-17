@@ -155,12 +155,12 @@ echo 1 > /sys/module/msm_thermal/core_control/enabled
 echo 4 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 # Setup VM
-echo 20 > /proc/sys/vm/dirty_ratio
+echo 50 > /proc/sys/vm/dirty_ratio
 echo 10 > /proc/sys/vm/vfs_cache_pressure
 echo 7759 > /proc/sys/vm/min_free_kbytes
 
 # Set swappiness
-echo 5 > /proc/sys/vm/swappiness
+echo 35 > /proc/sys/vm/swappiness
 
 # Disable L2-GDHS low power modes
 echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
