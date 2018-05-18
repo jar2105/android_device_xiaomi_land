@@ -15,9 +15,10 @@ audio.playback.mch.downsample=true
 audio.safx.pbe.enabled=true
 audio_hal.period_size=192
 ro.qc.sdk.audio.fluencetype=none
-persist.audio.fluence.speaker=false
-persist.audio.fluence.voicecall=true
+persist.audio.fluence.speaker=true
+persist.audio.fluence.voicecall=false
 persist.audio.fluence.voicerec=true
+persist.audio.fluence.audiorec=false
 persist.bt.enable.splita2dp=false
 use.qti.sw.alac.decoder=true
 use.qti.sw.ape.decoder=true
@@ -32,6 +33,7 @@ tunnel.audio.encode=false
 audio.parser.ip.buffer.size=0
 ro.qc.sdk.audio.ssr=false
 flac.sw.decoder.24bit.support=true
+ro.ril.enable.amr.wideband=1
 
 # Bluetooth
 bluetooth.hfp.client=1
@@ -42,8 +44,10 @@ camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 persist.camera.gyro.android=1
 persist.camera.is_type=1
+persist.camera.HAL3.enabled=1
 vidc.enc.narrow.searchrange=1
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk,org.telegram.messenger,com.whatsapp
+ro.media.enc.jpeg.quality=100
 
 # CNE/DPM
 persist.cne.feature=1
@@ -67,14 +71,10 @@ persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196610
 ro.qualcomm.cabl=0
 ro.sf.lcd_density=320
+windowsmgr.max_events_per_sec=150
 
 # DRM
 drm.service.enabled=true
-
-#Enable B service adj transition by default
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
 
 # Fingerprint
 persist.qfp=false
@@ -117,10 +117,7 @@ persist.rild.nitz_short_ons_3=
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.am.reschedule_service=true
-ro.core_ctl_max_cpu=4
-ro.core_ctl_min_cpu=2
-ro.sys.fw.dex2oat_thread_count=4
+ro.config.zram=true
 
 # Radio
 rild.libargs=-d /dev/smd0
@@ -152,6 +149,30 @@ persist.radio.sw_mbn_update=0
 persist.radio.videopause.mode=1
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
+persist.cust.tel.eons=1
+ro.ril.gprsclass=10
+ro.ril.hsdpa.category=8
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=1
+net.ipv4.ip_no_pmtu_disc=0
+net.ipv4.route.flush=1
+net.ipv4.tcp_ecn=0
+net.ipv4.tcp_fack=1
+net.ipv4.tcp_mem=187000 187000 187000
+net.ipv4.tcp_moderate_rcvbuf=1
+net.ipv4.tcp_no_metrics_save=1
+net.ipv4.tcp_rfc1337=1
+net.ipv4.tcp_rmem=4096 39000 187000
+net.ipv4.tcp_sack=1
+net.ipv4.tcp_timestamps=1
+net.ipv4.tcp_window_scaling=1
+net.ipv4.tcp_wmem=4096 39000 187000
+net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
+persist.radio.aosp_usr_pref_sel=true
 
 # SdcardFs
 ro.sys.sdcardfs=true
@@ -171,3 +192,6 @@ ro.sys.fw.trim_enable_memory=2147483648
 
 # Wifi
 wifi.interface=wlan0
+
+# Battery
+pm.sleep_mode=1
