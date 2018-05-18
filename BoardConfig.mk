@@ -51,6 +51,9 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CONFIG := land_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 
+# Extended Filesystem Support
+TARGET_EXFAT_DRIVER := sdfat
+
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
