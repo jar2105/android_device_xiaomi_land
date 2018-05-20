@@ -196,7 +196,7 @@ PRODUCT_COPY_FILES += \
 # Libshims
 PRODUCT_PACKAGES += \
     libshims_camera
- 
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8937
@@ -241,7 +241,9 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.spectrum.rc \
+    init.spectrum.sh
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -260,6 +262,10 @@ PRODUCT_COPY_FILES += \
 # Snap
 PRODUCT_PACKAGES += \
     Snap
+
+# Spectrum
+PRODUCT_PACKAGES += \
+    Spectrum
 
 # Thermal
 PRODUCT_COPY_FILES += \
