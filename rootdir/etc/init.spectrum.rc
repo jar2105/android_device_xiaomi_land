@@ -83,15 +83,15 @@ on property:persist.spectrum.profile=1
 on property:persist.spectrum.profile=2
     # Configure governor settings for big cluster
     write /sys/devices/system/cpu/cpu0/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 422400
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 422400
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1094400
 
     # Configure governor settings for little cluster
     write /sys/devices/system/cpu/cpu4/online 1
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 345600
-    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 345600
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 902400
 
     write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 375000000
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
