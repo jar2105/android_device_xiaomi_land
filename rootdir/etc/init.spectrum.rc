@@ -40,6 +40,7 @@ on property:persist.spectrum.profile=0
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 345600
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1209600
 
+    write /sys/module/msm_thermal/core_control/enabled 1
 
     write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 500000000
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
@@ -74,6 +75,18 @@ on property:persist.spectrum.profile=1
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 768000
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 1209600
 
+    # Bring up all cores online
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1
+
+    write /sys/module/msm_thermal/core_control/enabled 0
+
     write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 500000000
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 2
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
@@ -92,6 +105,8 @@ on property:persist.spectrum.profile=2
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "interactive"
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 345600
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 902400
+
+    write /sys/module/msm_thermal/core_control/enabled 1
 
     write /sys/class/kgsl/kgsl-3d0/devfreq/max_freq 375000000
     write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
