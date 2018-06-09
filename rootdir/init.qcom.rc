@@ -387,6 +387,8 @@ on boot
     # Goodix Fingerprint
     chown system system /dev/goodix_fp
     chmod 0644 /dev/goodix_fp
+    setprop persist.sys.fp.vendor none
+    start gx_fpd
     
     setprop persist.sys.fp.vendor none
     start gx_fpd
@@ -665,7 +667,6 @@ service fingerprintd /system/bin/fingerprintd
     disabled
 
 service gx_fpd /system/bin/gx_fpd
-    class core
     user root
     group system system
     writepid /dev/cpuset/system-background/tasks
@@ -674,14 +675,21 @@ service gx_fpd /system/bin/gx_fpd
 on property:persist.sys.fp.vendor=switchf
     stop gx_fpd
     setprop persist.sys.fp.vendor searchf
+    start fingerprintd
     setprop ro.boot.fpsensor fpc
     setprop ro.hardware.fingerprint searchf
-    start fingerprintd
+    setprop persist.sys.fp.onstart=1
 
 on property:persist.sys.fp.vendor=goodix
    setprop ro.boot.fpsensor gdx
    setprop ro.hardware.fingerprint goodix
+   setprop persist.sys.fp.onstart=0
+
+on property:persist.sys.fp.onstart=0
    start gx_fpd
+
+on property:persist.sys.fp.onstart=1
+   start fingerprintd 
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
