@@ -1,0 +1,11 @@
+<resources>
+    <!-- Default action for flip (turn face down) during alarm
+         0 means no action, 1 means snooze
+         2 means dismiss. -->
+    <integer name="config_defaultActionFlip">2</integer>
+
+    <!-- Default action for shake during alarm
+         0 means no action, 1 means snooze
+         2 means dismiss. -->
+    <integer name="config_defaultActionShake">2</integer>
+</resources>
