@@ -34,6 +34,9 @@ public class DeviceSettings extends PreferenceActivity implements
     final String KEY_DEVICE_DOZE = "device_doze";
     final String KEY_DEVICE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
 
+    private static final String KEY_CATEGORY_KERNEL = "kernel_category";
+    final String KEY_SPECTRUM_PACKAGE_NAME = "org.frap129.spectrum";
+
     private TwoStatePreference mTapToWakeSwitch;
     private VibratorStrengthPreference mVibratorStrength;
 
@@ -61,6 +64,12 @@ public class DeviceSettings extends PreferenceActivity implements
         if (!isAppInstalled(KEY_DEVICE_DOZE_PACKAGE_NAME)) {
             PreferenceCategory displayCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_DISPLAY);
             displayCategory.removePreference(findPreference(KEY_DEVICE_DOZE));
+        }
+
+        if (!isAppInstalled(KEY_SPECTRUM_PACKAGE_NAME)) {
+            PreferenceScreen deviceSettings = (PreferenceScreen) findPreference("categories");
+	    PreferenceCategory kernelCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_KERNEL);
+            deviceSettings.removePreference(kernelCategory);
         }
 
     }
