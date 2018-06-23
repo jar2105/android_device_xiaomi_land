@@ -234,3 +234,8 @@ wifi.interface=wlan0
 
 # Battery
 pm.sleep_mode=1
+
+# DTS Eagle
+use.dts_eagle=true
+hpx_send_params=1
+vendor.audio.use.dts_eagle=true
