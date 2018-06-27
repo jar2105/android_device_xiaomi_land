@@ -35,6 +35,7 @@ function configure_memory_parameters() {
     echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
     echo 10 > /sys/module/process_reclaim/parameters/pressure_min
     echo 1024 > /sys/module/process_reclaim/parameters/per_swap_size
+    echo 80640 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
     echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 
@@ -155,12 +156,13 @@ echo 1 > /sys/module/msm_thermal/core_control/enabled
 echo 4 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 # Setup VM
-echo 50 > /proc/sys/vm/dirty_ratio
-echo 10 > /proc/sys/vm/vfs_cache_pressure
+echo 80 > /proc/sys/vm/dirty_ratio
+echo 75 > /proc/sys/vm/vfs_cache_pressure
 echo 7759 > /proc/sys/vm/min_free_kbytes
+echo 50 > /proc/sys/vm/dirty_background_ratio
 
 # Set swappiness
-echo 35 > /proc/sys/vm/swappiness
+echo 100 > /proc/sys/vm/swappiness
 
 # Disable L2-GDHS low power modes
 echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
