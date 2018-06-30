@@ -156,10 +156,10 @@ echo 1 > /sys/module/msm_thermal/core_control/enabled
 echo 4 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 # Setup VM
-echo 80 > /proc/sys/vm/dirty_ratio
-echo 75 > /proc/sys/vm/vfs_cache_pressure
+echo 20 > /proc/sys/vm/dirty_ratio
+echo 10 > /proc/sys/vm/vfs_cache_pressure
 echo 7759 > /proc/sys/vm/min_free_kbytes
-echo 50 > /proc/sys/vm/dirty_background_ratio
+echo 5 > /proc/sys/vm/dirty_background_ratio
 
 # Set swappiness
 echo 100 > /proc/sys/vm/swappiness
