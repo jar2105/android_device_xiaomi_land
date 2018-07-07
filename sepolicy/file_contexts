@@ -22,3 +22,6 @@
 
 # Ir
 /dev/lirc[0-9]*					u:object_r:lirc_device:s0
+
+# Devices
+/dev/dts_eagle                                  u:object_r:audio_device:s0
