@@ -49,7 +49,7 @@ on property:persist.spectrum.profile=0
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
     write /proc/sys/kernel/sched_boost 1
     write /sys/kernel/sched/arch_power 0
-    write /sys/module/workqueue/parameters/power_efficient "Y"
+    write /sys/module/workqueue/parameters/power_efficient Y
 
 # Gaming
 on property:persist.spectrum.profile=1
@@ -82,7 +82,7 @@ on property:persist.spectrum.profile=1
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor performance
     write /proc/sys/kernel/sched_boost 1
     write /sys/kernel/sched/arch_power 0
-    write /sys/module/workqueue/parameters/power_efficient "N"
+    write /sys/module/workqueue/parameters/power_efficient N
 
 # Battery
 on property:persist.spectrum.profile=2
@@ -119,4 +119,4 @@ on property:persist.spectrum.profile=2
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor powersave
     write /proc/sys/kernel/sched_boost 0
     write /sys/kernel/sched/arch_power 1
-    write /sys/module/workqueue/parameters/power_efficient "Y"
+    write /sys/module/workqueue/parameters/power_efficient Y
