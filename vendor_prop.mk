@@ -6,9 +6,11 @@ audio.offload.disable=1 \
 audio.offload.min.duration.secs=30 \
 audio.offload.video=false \
 persist.audio.dirac.speaker=true \
-persist.audio.fluence.speaker=false \
-persist.vendor.audio.fluence.speaker=false \
-persist.vendor.audio.fluence.voicecall=true \
+persist.audio.fluence.speaker=true \
+persist.audio.fluence.audiorec=false \
+persist.vendor.audio.fluence.speaker=true \
+persist.vendor.audio.fluence.audiorec=false \
+persist.vendor.audio.fluence.voicecall=false \
 persist.vendor.audio.fluence.voicerec=false \
 persist.vendor.audio.speaker.prot.enable=false \
 persist.vendor.bt.enable.splita2dp=false \
@@ -37,13 +39,8 @@ vendor.voice.conc.fallbackpath=deep-buffer \
 vendor.voice.path.for.pcm.voip=true \
 vendor.voice.playback.conc.disabled=true \
 vendor.voice.record.conc.disabled=false \
-vendor.voice.voip.conc.disabled=true
-
-# B service
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.vendor.qti.sys.fw.bservice_enable=true \
-ro.vendor.qti.sys.fw.bservice_limit=5 \
-ro.vendor.qti.sys.fw.bservice_age=5000
+vendor.voice.voip.conc.disabled=true \
+ro.ril.enable.amr.wideband=1
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -56,7 +53,9 @@ ro.qualcomm.bt.hci_transport=smd
 PRODUCT_PROPERTY_OVERRIDES += \
 camera.display.lmax=1280x720 \
 camera.display.umax=1920x1080 \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
+persist.camera.HAL3.enabled=1 \
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk,org.telegram.messenger,com.whatsapp \
+ro.media.enc.jpeg.quality=100 \
 persist.camera.gyro.android=1 \
 persist.camera.is_type=1 \
 vendor.vidc.enc.narrow.searchrange=1 \
@@ -98,7 +97,8 @@ ro.qualcomm.cabl=0 \
 ro.qualcomm.svi=0 \
 ro.sf.lcd_density=320 \
 persist.debug.wfd.enable=1 \
-persist.hwc.enable_vds=1
+persist.hwc.enable_vds=1 \
+windowsmgr.max_events_per_sec=150
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -134,9 +134,7 @@ video.disable.ubwc=1
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.sys.fw.dex2oat_thread_count=4 \
 ro.vendor.extension_library=libqti-perfd-client.so \
-ro.vendor.qti.am.reschedule_service=true \
-ro.vendor.qti.core_ctl_min_cpu=2 \
-ro.vendor.qti.core_ctl_max_cpu=4
+ro.config.zram=true
 
 # Netmgrd
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -187,7 +185,30 @@ rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
 ro.telephony.call_ring.multiple=false \
 ro.telephony.default_network=20 \
 service.qti.ims.enabled=1 \
-telephony.lteOnCdmaDevice=1
+telephony.lteOnCdmaDevice=1 \
+persist.cust.tel.eons=1 \
+ro.ril.gprsclass=10 \
+ro.ril.hsdpa.category=8 \
+ro.ril.hsupa.category=6 \
+ro.ril.hsxpa=1 \
+net.ipv4.ip_no_pmtu_disc=0 \
+net.ipv4.route.flush=1 \
+net.ipv4.tcp_ecn=0 \
+net.ipv4.tcp_fack=1 \
+net.ipv4.tcp_mem=187000 187000 187000 \
+net.ipv4.tcp_moderate_rcvbuf=1 \
+net.ipv4.tcp_no_metrics_save=1 \
+net.ipv4.tcp_rfc1337=1 \
+net.ipv4.tcp_rmem=4096 39000 187000 \
+net.ipv4.tcp_sack=1 \
+net.ipv4.tcp_timestamps=1 \
+net.ipv4.tcp_window_scaling=1 \
+net.ipv4.tcp_wmem=4096 39000 187000 \
+net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960 \
+net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960 \
+net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960 \
+net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960 \
+net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960
 
 # Security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -216,3 +237,7 @@ ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
+
+# Battery
+PRODUCT_PROPERTY_OVERRIDES += \
+pm.sleep_mode=1
