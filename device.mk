@@ -119,6 +119,10 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
+# Calculator
+PRODUCT_PACKAGES += \
+    ExactCalculator
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8937
@@ -141,7 +145,7 @@ PRODUCT_COPY_FILES += \
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
-    
+
 # Consumerir
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
